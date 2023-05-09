@@ -2,9 +2,9 @@ import 'package:hive/hive.dart';
 import 'package:hiveflutter/model.dart';
 
 class HiveRepo {
-  addMenu(Menu menu) async {
-    var box = await Hive.openBox('menu');
-    box.put(menu.menuID, menu);
+  addMenu(ModuleItem menu) async {
+    var box = await Hive.openBox<ModuleItem>('menu');
+    box.put(menu.moduleId, menu);
   }
 
   getMenu(String menuID) async {
@@ -13,12 +13,12 @@ class HiveRepo {
   }
 
   getMenusByParentID(String parentID) async {
-    Box<Menu> box = await Hive.openBox('menu');
-    return box.values.where((menu) => menu.parentMenu == parentID).toList();
+    Box<ModuleItem> box = await Hive.openBox('menu');
+    return box.values.where((menu) => menu.parentModule == parentID).toList();
   }
 
-  getAllMenus() async {
-    var box = await Hive.openBox('menu');
-    return box.values;
+  Future<List<ModuleItem>> getAllMenus() async {
+    var box = await Hive.openBox<ModuleItem>('menu');
+    return box.values.toList();
   }
 }

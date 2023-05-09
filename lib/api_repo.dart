@@ -8,7 +8,9 @@ class APIRepo {
 
   storeMenuItemsToHive(menuItems) {
     menuItems["Modules"].forEach((menu) {
-      hiveRepo.addMenu(Menu.fromJson(menu));
+      var menuItem = ModuleItem.fromJson(menu);
+      print("Menuuu${menuItem.moduleCategory}");
+      hiveRepo.addMenu(ModuleItem.fromJson(menu));
     });
   }
 }

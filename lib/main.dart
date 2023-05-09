@@ -10,141 +10,155 @@ Future<void> main() async {
   final _apiRepo = APIRepo();
 
   await Hive.initFlutter();
-  Hive.registerAdapter(MenuAdapter());
+  Hive.registerAdapter(ModuleItemAdapter());
+  // Hive.registerAdapter(FormItemAdapter());
+  // Hive.registerAdapter(ActionItemAdapter());
+  // Hive.registerAdapter(UserCodeAdapter());
+  // Hive.registerAdapter(BankBranchAdapter());
+  // Hive.registerAdapter(AtmLocationAdapter());
+  // Hive.registerAdapter(ImageDataAdapter());
+  // Hive.registerAdapter(BranchLocationAdapter());
+  // Hive.registerAdapter(FrequentAccessedModuleAdapter());
+  // Hive.registerAdapter(BankAccountAdapter());
+  // Hive.registerAdapter(BeneficiaryAdapter());
+  // Hive.registerAdapter(ModuleToHideAdapter());
+  // Hive.registerAdapter(ModuleToDisableAdapter());
+  // Hive.registerAdapter(PendingTrxDisplayAdapter());
+  // Hive.registerAdapter(OnlineAccountProductAdapter());
 
-  // _apiRepo.storeMenuItemsToHive({
-  //   "Modules": [
-  //     {
-  //       "ModuleID": "STARTIMES",
-  //       "ModuleName": "Star Times",
-  //       "ParentModule": "UTILITY",
-  //       "ModuleCategory": "FORM",
-  //       "ModuleURL":
-  //           "https:\/\/uat.craftsilicon.com\/image\/FTB\/V2_3\/startimes.png",
-  //       "MerchantID": "007001015",
-  //       "DisplayOrder": 3.000,
-  //       "IsOtpRequired": false,
-  //       "IsMainMenu": false,
-  //       "IsHidden": false
-  //     },
-  //     {
-  //       "ModuleID": "STOPCHEQUE",
-  //       "ModuleName": "Stop Cheque",
-  //       "ParentModule": "REQUESTS",
-  //       "ModuleCategory": "FORM",
-  //       "ModuleURL":
-  //           "https:\/\/uat.craftsilicon.com\/image\/CentenaryApp\/V2_3\/Icons_Stop_Cheque.png",
-  //       "MerchantID": "STOPCHEQUE",
-  //       "DisplayOrder": 3.000,
-  //       "IsDisabled": false,
-  //       "IsOtpRequired": false,
-  //       "IsMainMenu": false,
-  //       "IsHidden": false
-  //     },
-  //     {
-  //       "ModuleID": "BALANCE",
-  //       "ModuleName": "Check Balance",
-  //       "ParentModule": "",
-  //       "ModuleCategory": "FORM",
-  //       "MerchantID": "BALANCE",
-  //       "DisplayOrder": 3.100,
-  //       "IsDisabled": false,
-  //       "IsOtpRequired": false,
-  //       "IsMainMenu": false,
-  //       "IsHidden": false
-  //     },
-  //     {
-  //       "ModuleID": "ZUKU",
-  //       "ModuleName": "ZUKU",
-  //       "ParentModule": "UTILITY",
-  //       "ModuleCategory": "FORM",
-  //       "ModuleURL":
-  //           "https:\/\/uat.craftsilicon.com\/image\/FTB\/V2_3\/zuku.png",
-  //       "MerchantID": "ZUKU",
-  //       "DisplayOrder": 3.100,
-  //       "IsOtpRequired": false,
-  //       "IsMainMenu": false,
-  //       "IsHidden": false
-  //     },
-  //     {
-  //       "ModuleID": "NWSC",
-  //       "ModuleName": "National Water",
-  //       "ParentModule": "UTILITY",
-  //       "ModuleCategory": "FORM",
-  //       "ModuleURL":
-  //           "https:\/\/uat.craftsilicon.com\/image\/FTB\/V2_3\/national_water.png",
-  //       "MerchantID": "007001003",
-  //       "DisplayOrder": 4.000,
-  //       "IsOtpRequired": false,
-  //       "IsMainMenu": false,
-  //       "IsHidden": false
-  //     },
-  //     {
-  //       "ModuleID": "OTHERLOANS",
-  //       "ModuleName": "Other Loans",
-  //       "ParentModule": "MORE",
-  //       "ModuleCategory": "BLOCK",
-  //       "ModuleURL":
-  //           "https:\/\/uat.craftsilicon.com\/image\/CentenaryApp\/V2_3\/Icons_OtherLoans.png",
-  //       "DisplayOrder": 4.000,
-  //       "IsOtpRequired": false,
-  //       "IsMainMenu": false,
-  //       "IsHidden": false
-  //     },
-  //     {
-  //       "ModuleID": "OTHTRANSFER",
-  //       "ModuleName": "Other Brac Account",
-  //       "ParentModule": "INTERNALTRANSFER",
-  //       "ModuleCategory": "FORM",
-  //       "ModuleURL":
-  //           "https:\/\/uat.craftsilicon.com\/image\/CentenaryApp\/V2_3\/Icons_OtherAccount.png",
-  //       "MerchantID": "TRANSFER",
-  //       "DisplayOrder": 4.000,
-  //       "IsOtpRequired": false,
-  //       "IsMainMenu": false,
-  //       "IsHidden": false
-  //     },
-  //     {
-  //       "ModuleID": "LOANLPAYMENT",
-  //       "ModuleName": "Loan Payment",
-  //       "ParentModule": "LOAN",
-  //       "ModuleCategory": "FORM",
-  //       "ModuleURL":
-  //           "https:\/\/uat.craftsilicon.com\/image\/FTB\/V2_3\/payment.png",
-  //       "MerchantID": "",
-  //       "DisplayOrder": 4.000,
-  //       "IsOtpRequired": false,
-  //       "IsMainMenu": false,
-  //       "IsHidden": false
-  //     },
-  //     {
-  //       "ModuleID": "FTBONLINEBANKING",
-  //       "ModuleName": "Online Banking",
-  //       "ParentModule": "",
-  //       "ModuleCategory": "FORM",
-  //       "ModuleURL": "",
-  //       "MerchantID": "",
-  //       "DisplayOrder": 4.000,
-  //       "IsDisabled": false,
-  //       "IsOtpRequired": false,
-  //       "IsMainMenu": false,
-  //       "IsHidden": false
-  //     },
-  //     {
-  //       "ModuleID": "INTERNALTRANSFER",
-  //       "ModuleName": "Internal Transfer",
-  //       "ParentModule": "MAIN",
-  //       "ModuleCategory": "BLOCK",
-  //       "ModuleURL":
-  //           "https:\/\/uat.craftsilicon.com\/image\/FTB\/V2_3\/ift.png",
-  //       "MerchantID": "",
-  //       "DisplayOrder": 4.000,
-  //       "IsOtpRequired": false,
-  //       "IsMainMenu": false,
-  //       "IsHidden": false
-  //     },
-  //   ]
-  // });
+  _apiRepo.storeMenuItemsToHive({
+    "Modules": [
+      {
+        "ModuleID": "STARTIMES",
+        "ModuleName": "Star Times",
+        "ParentModule": "UTILITY",
+        "ModuleCategory": "FORM",
+        "ModuleURL":
+            "https:\/\/uat.craftsilicon.com\/image\/FTB\/V2_3\/startimes.png",
+        "MerchantID": "007001015",
+        "DisplayOrder": 3.000,
+        "IsOtpRequired": false,
+        "IsMainMenu": false,
+        "IsHidden": false
+      },
+      {
+        "ModuleID": "STOPCHEQUE",
+        "ModuleName": "Stop Cheque",
+        "ParentModule": "REQUESTS",
+        "ModuleCategory": "FORM",
+        "ModuleURL":
+            "https:\/\/uat.craftsilicon.com\/image\/CentenaryApp\/V2_3\/Icons_Stop_Cheque.png",
+        "MerchantID": "STOPCHEQUE",
+        "DisplayOrder": 3.000,
+        "IsDisabled": false,
+        "IsOtpRequired": false,
+        "IsMainMenu": false,
+        "IsHidden": false
+      },
+      {
+        "ModuleID": "BALANCE",
+        "ModuleName": "Check Balance",
+        "ParentModule": "",
+        "ModuleCategory": "FORM",
+        "MerchantID": "BALANCE",
+        "DisplayOrder": 3.100,
+        "IsDisabled": false,
+        "IsOtpRequired": false,
+        "IsMainMenu": false,
+        "IsHidden": false
+      },
+      {
+        "ModuleID": "ZUKU",
+        "ModuleName": "ZUKU",
+        "ParentModule": "UTILITY",
+        "ModuleCategory": "FORM",
+        "ModuleURL":
+            "https:\/\/uat.craftsilicon.com\/image\/FTB\/V2_3\/zuku.png",
+        "MerchantID": "ZUKU",
+        "DisplayOrder": 3.100,
+        "IsOtpRequired": false,
+        "IsMainMenu": false,
+        "IsHidden": false
+      },
+      {
+        "ModuleID": "NWSC",
+        "ModuleName": "National Water",
+        "ParentModule": "UTILITY",
+        "ModuleCategory": "FORM",
+        "ModuleURL":
+            "https:\/\/uat.craftsilicon.com\/image\/FTB\/V2_3\/national_water.png",
+        "MerchantID": "007001003",
+        "DisplayOrder": 4.000,
+        "IsOtpRequired": false,
+        "IsMainMenu": false,
+        "IsHidden": false
+      },
+      {
+        "ModuleID": "OTHERLOANS",
+        "ModuleName": "Other Loans",
+        "ParentModule": "MORE",
+        "ModuleCategory": "BLOCK",
+        "ModuleURL":
+            "https:\/\/uat.craftsilicon.com\/image\/CentenaryApp\/V2_3\/Icons_OtherLoans.png",
+        "DisplayOrder": 4.000,
+        "IsOtpRequired": false,
+        "IsMainMenu": false,
+        "IsHidden": false
+      },
+      {
+        "ModuleID": "OTHTRANSFER",
+        "ModuleName": "Other Brac Account",
+        "ParentModule": "INTERNALTRANSFER",
+        "ModuleCategory": "FORM",
+        "ModuleURL":
+            "https:\/\/uat.craftsilicon.com\/image\/CentenaryApp\/V2_3\/Icons_OtherAccount.png",
+        "MerchantID": "TRANSFER",
+        "DisplayOrder": 4.000,
+        "IsOtpRequired": false,
+        "IsMainMenu": false,
+        "IsHidden": false
+      },
+      {
+        "ModuleID": "LOANLPAYMENT",
+        "ModuleName": "Loan Payment",
+        "ParentModule": "LOAN",
+        "ModuleCategory": "FORM",
+        "ModuleURL":
+            "https:\/\/uat.craftsilicon.com\/image\/FTB\/V2_3\/payment.png",
+        "MerchantID": "",
+        "DisplayOrder": 4.000,
+        "IsOtpRequired": false,
+        "IsMainMenu": false,
+        "IsHidden": false
+      },
+      {
+        "ModuleID": "FTBONLINEBANKING",
+        "ModuleName": "Online Banking",
+        "ParentModule": "",
+        "ModuleCategory": "FORM",
+        "ModuleURL": "",
+        "MerchantID": "",
+        "DisplayOrder": 4.000,
+        "IsDisabled": false,
+        "IsOtpRequired": false,
+        "IsMainMenu": false,
+        "IsHidden": false
+      },
+      {
+        "ModuleID": "INTERNALTRANSFER",
+        "ModuleName": "Internal Transfer",
+        "ParentModule": "MAIN",
+        "ModuleCategory": "BLOCK",
+        "ModuleURL":
+            "https:\/\/uat.craftsilicon.com\/image\/FTB\/V2_3\/ift.png",
+        "MerchantID": "",
+        "DisplayOrder": 4.000,
+        "IsOtpRequired": false,
+        "IsMainMenu": false,
+        "IsHidden": false
+      },
+    ]
+  });
 
   runApp(const MyApp());
 }
@@ -188,23 +202,33 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    print("Started home oage>>>>>>>>>>>.");
     super.initState();
   }
 
-  Future<List<Menu>> getMenus() async {
-    List<Menu> listMenu = [];
-    var menu = await _hiveRepo.getAllMenus();
+  Future<List<ModuleItem>> getMenus() async {
+    List<ModuleItem> listMenu = [];
+    List<ModuleItem> menu = await _hiveRepo.getAllMenus();
+    print("Starting gettig menis${menu}");
     menu.forEach((item) {
-      Menu menuItem = Menu(
-          menuID: item.menuID,
-          parentMenu: item.parentMenu,
-          menuUrl: item.menuUrl,
-          menuName: item.menuID);
-      print("Menu url:::${menuItem.menuUrl}");
-      listMenu.add(menuItem);
+      print("Menu category >>>>>>>>>}");
+      try {
+        ModuleItem menuItem = ModuleItem(
+            moduleId: item.moduleId,
+            parentModule: item.parentModule,
+            moduleUrl: item.moduleUrl,
+            moduleName: item.moduleName,
+            merchantID: item.merchantID);
+        print("ModuleItem url:::${menuItem.moduleUrl}");
+        listMenu.add(menuItem);
+      } catch (e) {
+        print(e.toString());
+      }
     });
     return listMenu;
   }
+
+  // ini
 
   @override
   Widget build(BuildContext context) {
@@ -214,33 +238,34 @@ class _MyHomePageState extends State<MyHomePage> {
           // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
         ),
-        body: FutureBuilder<List<Menu>>(
+        body: FutureBuilder<List<ModuleItem>>(
             future: getMenus(),
-            builder: (context, AsyncSnapshot<List<Menu>> snapshot) {
+            builder: (context, AsyncSnapshot<List<ModuleItem>> snapshot) {
               Widget child = const SizedBox();
-              if (snapshot.hasData) {
-                child = ListView.builder(
-                    itemCount: snapshot.data?.length ?? 0,
-                    itemBuilder: (context, index) {
-                      return Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 14, vertical: 12),
-                          child: Column(
-                            children: [
-                              Text(snapshot.data?[index].menuName ?? ""),
-                              const SizedBox(
-                                height: 4,
-                              ),
-                              CachedNetworkImage(
-                                imageUrl: snapshot.data?[index].menuUrl ?? "",
-                                placeholder: (context, url) =>
-                                    CircularProgressIndicator(),
-                                errorWidget: (context, url, error) =>
-                                    Icon(Icons.error),
-                              ),
-                            ],
-                          ));
-                    });
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                child = CircularProgressIndicator();
+              }
+              if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.hasData) {
+                  child = ListView.builder(
+                      itemCount: snapshot.data?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        return Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 14, vertical: 12),
+                            child: Column(
+                              children: [
+                                Text(snapshot.data?[index].moduleName ?? ""),
+                                const SizedBox(
+                                  height: 4,
+                                ),
+                                Image.network(
+                                  snapshot.data?[index].moduleUrl ?? "",
+                                ),
+                              ],
+                            ));
+                      });
+                }
               }
               return child;
             })
